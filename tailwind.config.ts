@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       colors: {
         titanium: "#D4D4D8",
+        green: "#00A587",
       },
     },
   },
