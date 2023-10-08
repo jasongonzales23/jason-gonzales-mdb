@@ -3,8 +3,8 @@ import ArrowLeft from "./arrow-left";
 export default function TopBar() {
   const collapsedMargin = "ml-12";
   return (
-    <nav className="fixed top-0 z-30 w-full bg-white border-b border-gray-200">
-      <div className="px-3 py-3 lg:px-5 lg:pl-3">
+    <nav className="fixed top-0 z-30 w-full bg-white border-b border-zinc-200">
+      <div className="px-3 py-3.5 lg:px-5 lg:pl-3">
         <div className="flex items-center justify-between">
           <div
             className={`${collapsedMargin} flex items-center justify-start text-sm`}

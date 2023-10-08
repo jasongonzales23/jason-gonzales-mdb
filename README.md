@@ -51,6 +51,7 @@ Made "/constants/nav-items.js" to make it easy to add nav items with data / json
 
 - Support more responsive views like iPad, is phone even a reasonable use-case?
 - Collapsible side nav, notice I have vars in there to pave the way for this
+- made SVG components more flexible (take fill colors as vars for example)
 
 ## Running the development environment
 
