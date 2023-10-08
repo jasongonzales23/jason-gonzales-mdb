@@ -1,11 +1,19 @@
-export default function AddDataSource() {
+import datasources from "@/data-sources/data";
+import DataSources from "@/components/data-sources";
+
+export default function AddDataSourcePage() {
   return (
     <main>
-      <div>
+      <div className="flex flex-col items-center">
+        <h2 className="text-xl text-black">Select your datasource</h2>
+        <h3 className="text-l text-zinc-600">
+          Don&apos;t see what you&apos;re looking for? Make a request
+        </h3>
+        <div>Placeholder for Pro Tip!</div>
         <form>
           <label
             htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only"
           >
             Search
           </label>
@@ -30,14 +38,16 @@ export default function AddDataSource() {
             <input
               type="search"
               id="default-search"
-              className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search Mockups, Logos..."
+              className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Search"
               required
             />
           </div>
         </form>
       </div>
-      <div>Add Datasource</div>
+      <div>
+        <DataSources data={datasources} />
+      </div>
     </main>
   );
 }

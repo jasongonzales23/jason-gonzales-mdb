@@ -1,23 +1,24 @@
 # TODO
 
-- [ ] Make a page for chat-project/add-datasource layout
-- [ ] Create layout
+- [ ]
+- [x] Make a page for chat-project/add-datasource layout
+- [x] Create layout
 
   - [ ] side nav
-  - [ ] top bar
+    - [ ] bottom cog
+  - [x] top bar
 
 - Components to make
 
   - [ ] input
   - [ ] w/ icon child?
-  - [ ] left nav
-  - [ ] top bar
+  - [x] left nav
+  - [x] top bar
 
-- [ ] Make a decision about routing
+- [x] Make a decision about routing
 - [ ] Filtering the list
   - [ ] What should 'Filter By' do? Existing app has 'Sort By' which is a bit unclear because if I 'sort by AWS' and type postgres is my result
         postgres on AWS? Methinks not!
-- [ ] Create chat-project/add-datasource layout
 - [ ] Integrate virtualized
 - [ ] Figure out what I'll need Jotai for
 - [ ] route to other pages w/ a placeholder in the page, highlight nav etc
