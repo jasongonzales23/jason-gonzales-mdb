@@ -1,71 +1,63 @@
 const datasources = [
   {
     name: "MongoDB",
-    icon: "path to image",
+    icon: "mongodb.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Postgres",
+    icon: "postgresql.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "MySQL",
+    icon: "mysql.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Microsoft Access",
+    icon: "microsoft-office-access.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Airtable",
+    icon: "airtable.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "S3",
+    icon: "amazon-s3.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Cassandra",
+    icon: "cassandra.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "ClickHouse",
+    icon: "clickhouse.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Couchbase",
+    icon: "couchbase.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "CreateDB",
+    icon: "createdb.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "D0ltdb",
+    icon: "d0ltdb.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "DataStax",
+    icon: "datastax.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "DynamoDB",
+    icon: "dynamodb.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Elasticsearch",
+    icon: "elasticsearch.svg",
   },
   {
-    name: "MongoDB",
-    icon: "path to image",
-  },
-  {
-    name: "MongoDB",
-    icon: "path to image",
-  },
-  {
-    name: "MongoDB",
-    icon: "path to image",
+    name: "Firebird",
+    icon: "firebird.svg",
   },
 ];
 

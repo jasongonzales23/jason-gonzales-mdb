@@ -1,6 +1,10 @@
 # TODO
 
-- [ ]
+- [ ] fix search field
+- [ ] make a simple filter
+- [ ] add icons to tiles
+- [ ] add Pro Tip!
+- [ ] Integrate virtualized
 - [x] Make a page for chat-project/add-datasource layout
 - [x] Create layout
 
@@ -19,7 +23,6 @@
 - [ ] Filtering the list
   - [ ] What should 'Filter By' do? Existing app has 'Sort By' which is a bit unclear because if I 'sort by AWS' and type postgres is my result
         postgres on AWS? Methinks not!
-- [ ] Integrate virtualized
 - [ ] Figure out what I'll need Jotai for
 - [ ] route to other pages w/ a placeholder in the page, highlight nav etc
 
@@ -48,6 +51,24 @@ Opted to not make a footer in the layout. It's not a challenge to add one for st
 
 Made "/constants/nav-items.js" to make it easy to add nav items with data / json. Would be helpful to build this nav based on RBAC or other dynamic needs.
 
+An assumption about how the list of datasources would be loaded. If there are a reasonable amount (like not thousands) it makes sense to render this page server side rather than load the page and then make a fetch for the data sources.
+
+## Add more datasources for virtualized rendering
+
+- Add an svg logo to the public folder (for a real world situation we might use a headless CMS like sanity or just an S3 bucket)
+- Then add an item to /datasources/data.js
+- Add and object that looks like this to the array:
+
+  ```
+  {
+    name: "string",
+    icon: "filename w/ extension"
+  }
+
+  ```
+
+````
+
 ## Things I'd do next or with more time
 
 - Support more responsive views like iPad, is phone even a reasonable use-case?
@@ -66,7 +87,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
