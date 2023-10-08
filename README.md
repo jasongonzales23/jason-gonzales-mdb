@@ -1,10 +1,12 @@
 # TODO
 
-- [ ] fix search field
-- [ ] make a simple filter
-- [ ] add icons to tiles
-- [ ] add Pro Tip!
 - [ ] Integrate virtualized
+- [ ] break form up into components
+- [ ] find/replace all instances of 1024px
+- [ ] make a simple filter
+- [x] fix search field
+- [x] add icons to tiles
+- [x] add Pro Tip!
 - [x] Make a page for chat-project/add-datasource layout
 - [x] Create layout
 
@@ -52,6 +54,15 @@ Opted to not make a footer in the layout. It's not a challenge to add one for st
 Made "/constants/nav-items.js" to make it easy to add nav items with data / json. Would be helpful to build this nav based on RBAC or other dynamic needs.
 
 An assumption about how the list of datasources would be loaded. If there are a reasonable amount (like not thousands) it makes sense to render this page server side rather than load the page and then make a fetch for the data sources.
+
+Ultimately is Tailwind CSS the way to go? Maybe?
+
+To help teams move fast it's actually good to hide a lot of the CSS one way or another. One way is to use styled components that can have local overrides as needed.
+But CSS is technically more efficient for rendering. As ever, I'd call this tradeoff when you see performance starting to be affected by using styled components.
+
+In my experience styled components have never caused rendering problems
+
+added additional items to data sources to demonstrate virtualizer still works without a full "row" of tiles.
 
 ## Add more datasources for virtualized rendering
 

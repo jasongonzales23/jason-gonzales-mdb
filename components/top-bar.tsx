@@ -12,12 +12,12 @@ export default function TopBar() {
             <span className="mr-2">
               <ArrowLeft />
             </span>
-            <a href="/" className="text-zinc-600">
+            <a href="#" className="text-zinc-600">
               Chat Project
             </a>
             <span className="text-titanium mx-2">&#47;</span>
             {/* make this a named style at least*/}
-            <a href="/" className="text-zinc-900">
+            <a href="#" className="text-zinc-900">
               Add datasource
             </a>
           </div>

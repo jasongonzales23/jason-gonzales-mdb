@@ -59,6 +59,14 @@ const datasources = [
     name: "Firebird",
     icon: "firebird.svg",
   },
+  {
+    name: "MongoDB",
+    icon: "mongodb.svg",
+  },
+  {
+    name: "Postgres",
+    icon: "postgresql.svg",
+  },
 ];
 
 export default datasources;
