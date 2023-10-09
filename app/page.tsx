@@ -26,6 +26,7 @@ export default function AddDataSourcePage() {
   const handleClearState = (evt: React.MouseEvent) => {
     evt.preventDefault();
     setSelectedDatasource({ name: "", icon: "" });
+    setFilteredData(datasources);
   };
 
   // This constant is reused for the main container layout
