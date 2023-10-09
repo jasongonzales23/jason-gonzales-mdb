@@ -2,10 +2,10 @@
 
 - [ ] clean up warnings
 - [ ] break form up into components
-- [ ] find/replace all instances of 1024px and other magic numbers
-- [ ] bottom cog
-- [ ] more svg cleanup?
-- [ ] include Jotai for second page
+- [x] find/replace all instances of 1024px and other magic numbers
+- [x] more svg cleanup?
+- [x] bottom cog
+- [x] include Jotai for second page
 - [x] make a simple filter
 - [x] Integrate react-window
 - [x] fix search field
@@ -78,7 +78,7 @@ It's also case insensitive because I feel that's a better experience and expecte
 
 ## SVG
 
-More tradeoffs! I just wanted to stay organized and use the nice Nextjs Image tag. That said, for SVG that needs to style dynamically I'd need to turn each SVG into a component that receives props. But even then things can get hairy because you're now styling with JS instead of CSS. I'm sticking with CSS for this challenge because it was fast to build with!
+I started off doing what I think is the right way, making a component for each SVG icon used, but I quickly got worried about taking too much time for the challenge and for the remainder opted for a simpler, faster and still OK approach using the Nextjs Image tag which is still quite organized. That said, for SVG that needs to be styled dynamically I'd need each SVG to be a component that receives props. But even then things can get hairy because you're now styling with JS instead of CSS. I'm sticking with CSS for this challenge because it was faster to build with!
 
 ## If you want to add more datasources for virtualized rendering
 

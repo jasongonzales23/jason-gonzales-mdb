@@ -3,17 +3,16 @@ import Image from "next/image";
 import { FixedSizeGrid as Grid } from "react-window";
 import { GridChildComponentProps } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import { atom, useAtom } from "jotai";
+import selectedDatasourceAtom from "@/state/selected-datasource";
+import { useAtom } from "jotai";
 
-type Data = {
+export type Data = {
   name: string;
   icon: string;
 };
 type DataSources = {
   data: Data[];
 };
-
-const selectedDatasourceAtom = atom({});
 
 export default function DataSources({ data }: DataSources) {
   const GUTTER_SIZE = 20;

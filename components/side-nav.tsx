@@ -1,4 +1,5 @@
 import NavItems from "./nav-items";
+import Image from "next/image";
 
 export default function SideNav() {
   const collapsedWidth = "w-12";
