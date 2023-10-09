@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { FixedSizeGrid as Grid } from "react-window";
 import { GridChildComponentProps } from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 type Data = {
   name: string;
@@ -12,12 +13,15 @@ type DataSources = {
 };
 
 export default function DataSources({ data }: DataSources) {
-  console.log(data.length);
   const GUTTER_SIZE = 20;
   const COLUMN_WIDTH = 188.8;
   const ROW_HEIGHT = 176;
   const COLUMN_COUNT = 5;
   const ROW_COUNT = Math.ceil(data.length / COLUMN_COUNT);
+
+  const handleClick = ({ name }: Data) => {
+    console.log(name);
+  };
 
   const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => {
     const idx = rowIndex * COLUMN_COUNT + columnIndex;
@@ -34,6 +38,9 @@ export default function DataSources({ data }: DataSources) {
           height: (style.height as number) - GUTTER_SIZE,
         }}
         className="flex flex-col items-center justify-center border rounded-lg border-zinc-200 text-zinc-800"
+        onClick={() => {
+          handleClick(data[idx]);
+        }}
       >
         <Image
           width="64"
@@ -47,19 +54,20 @@ export default function DataSources({ data }: DataSources) {
   };
 
   return (
-    <div className={`mx-auto w-[${1044}px] mt-[-${GUTTER_SIZE + 4}px]`}>
-      <div className="ml-[-10px]">
+    <AutoSizer disableWidth>
+      {({ height }) => (
         <Grid
+          // style={{ borderTop: "#f1f1f1 1px solid" }} // add something like this onscroll to make the top look nice
           columnCount={COLUMN_COUNT}
           columnWidth={COLUMN_WIDTH + GUTTER_SIZE}
-          height={803}
+          height={height}
           rowCount={ROW_COUNT}
           rowHeight={ROW_HEIGHT + GUTTER_SIZE}
           width={1044 + GUTTER_SIZE}
         >
           {Cell}
         </Grid>
-      </div>
-    </div>
+      )}
+    </AutoSizer>
   );
 }

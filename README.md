@@ -1,27 +1,22 @@
 # TODO
 
-- [ ] Integrate virtualized
+- [ ] clean up warnings
 - [ ] break form up into components
-- [ ] find/replace all instances of 1024px
-- [ ] make a simple filter
+- [ ] find/replace all instances of 1024px and other magic numbers
+- [ ] bottom cog
+- [ ] more svg cleanup?
+- [ ] include Jotai for second page
+- [x] make a simple filter
+- [x] Integrate react-window
 - [x] fix search field
 - [x] add icons to tiles
 - [x] add Pro Tip!
 - [x] Make a page for chat-project/add-datasource layout
 - [x] Create layout
 
-  - [ ] side nav
-    - [ ] bottom cog
-  - [x] top bar
+- [x] side nav
+- [x] top bar
 
-- Components to make
-
-  - [ ] input
-  - [ ] w/ icon child?
-  - [x] left nav
-  - [x] top bar
-
-- [x] Make a decision about routing
 - [ ] Filtering the list
   - [ ] What should 'Filter By' do? Existing app has 'Sort By' which is a bit unclear because if I 'sort by AWS' and type postgres is my result
         postgres on AWS? Methinks not!
@@ -64,7 +59,28 @@ In my experience styled components have never caused rendering problems
 
 added additional items to data sources to demonstrate virtualizer still works without a full "row" of tiles.
 
-## Add more datasources for virtualized rendering
+Opted to move all images to public folder for convenience during this challenge. It's fine but usually in real project it's different (explain how)
+
+Is this a prototype or a the beginning of a functional project? ¡¿Por que no los dos?!
+
+Many times a prototype ends up becoming the starting place for a real project, so I _mostly_ thought about it that way. I hate making throw away work! That said, when prototyping you need to move fast because it is possible the entire thing is discarded. So you'll see I make various gestures to support growth with simple things like not hardcoding variables that would best be set programmatically somehow. For example I set a lot of layout functions with vars. In general these vars can get scattered about so it's good to give them helpful names and put them someplace reasonable.
+
+Added a "magic number" to set the size of the scroll window for tiles. This is a tradeoff of speed / value / maintainability. When the layout changes in the future we'll need to fix this magic number. In that same future, it's pretty likely that will be a simple change. Or we could spend more time to calculate it better or use a an obscure CSS approach. I didn't take the time to find the obscure CSS approach. React Window already requires some weird CSS as it is and that took a while to sort out. We could set the heigh JS, but that is less efficient and creats a weird exception to how this whole project does styling.
+
+## Tests!
+
+I would always make a few integration tests. My stance on testing is integration tests > unit tests and that tests should support use-case coverage and not code coverage. I would have made more tests, but again time was short so I deprioritized this because I conceived of it as a prototype that could grow up to be a big boy someday.
+
+## Filtering
+
+I opted for a very simple filter. You type the name and the results are the name where any of the typed characters are included in the name.
+It's also case insensitive because I feel that's a better experience and expected by most people. Additional super nicey niceties could be to strip and/or tokenize whitespace for names like "Microsoft Access". Just didn't get to this, but it should be done.
+
+## SVG
+
+More tradeoffs! I just wanted to stay organized and use the nice Nextjs Image tag. That said, for SVG that needs to style dynamically I'd need to turn each SVG into a component that receives props. But even then things can get hairy because you're now styling with JS instead of CSS. I'm sticking with CSS for this challenge because it was fast to build with!
+
+## If you want to add more datasources for virtualized rendering
 
 - Add an svg logo to the public folder (for a real world situation we might use a headless CMS like sanity or just an S3 bucket)
 - Then add an item to /datasources/data.js
@@ -78,13 +94,12 @@ added additional items to data sources to demonstrate virtualizer still works wi
 
   ```
 
-````
-
 ## Things I'd do next or with more time
 
 - Support more responsive views like iPad, is phone even a reasonable use-case?
 - Collapsible side nav, notice I have vars in there to pave the way for this
 - made SVG components more flexible (take fill colors as vars for example)
+- made it window scroll so the scroll bar isn't in the middle of the page
 
 ## Running the development environment
 
@@ -98,7 +113,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-````
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

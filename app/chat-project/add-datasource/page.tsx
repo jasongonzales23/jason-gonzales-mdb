@@ -1,11 +1,27 @@
+"use client";
+import { useState } from "react";
 import datasources from "@/data-sources/data";
 import DataSources from "@/components/data-sources";
 import AlertBox from "@/components/alert-box";
+import Image from "next/image";
 
 export default function AddDataSourcePage() {
+  const SCROLL_WINDOW_OFFSET = 344;
+  const [filteredData, setFilteredData] = useState(datasources);
+  const handleChange = (evt: React.ChangeEvent) => {
+    const input = evt.target as HTMLInputElement;
+    const value = input.value.toLowerCase();
+    const filtered = datasources.filter((d) =>
+      d.name.toLowerCase().includes(value)
+    );
+    setFilteredData(filtered);
+  };
+
   return (
     <main>
-      <div className="flex flex-col items-center">
+      <div
+        className={`flex flex-col items-center h-[calc(100vh-${SCROLL_WINDOW_OFFSET}px)]`}
+      >
         <h2 className="mb-2 text-xl text-black font-semibold">
           Select your datasource
         </h2>
@@ -29,28 +45,20 @@ export default function AddDataSourcePage() {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
+                <Image
+                  className="w-3 h-3 fill-zinc-500"
+                  src="/search-icon.svg"
+                  height="20"
+                  width="20"
+                  alt="search"
+                />
               </div>
               <input
+                onChange={handleChange}
                 type="search"
-                id="default-search"
+                id="search"
                 className="block w-full p-2.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search"
-                required
               />
             </div>
           </div>
@@ -78,9 +86,8 @@ export default function AddDataSourcePage() {
             </svg>
           </button>
         </form>
-      </div>
-      <div>
-        <DataSources data={datasources} />
+        {/** Put a nice separator here with a subtle border or shadow */}
+        <DataSources data={filteredData} />
       </div>
     </main>
   );
