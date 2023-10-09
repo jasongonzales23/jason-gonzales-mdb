@@ -2,7 +2,7 @@
 
 ## Viewing on Vercel
 
-I elected to put the challenge at this route:
+You can see the code deployed [here](https://jason-gonzales-mdb.vercel.app/)
 
 ## Rationale
 
