@@ -8,6 +8,6 @@ import Home from "@/app/page";
 describe("Home", () => {
   it("renders a heading", () => {
     render(<Home />);
-    expect(screen.getByText("COMING SOON!")).toBeInTheDocument();
+    expect(screen.getByText("Select your datasource")).toBeInTheDocument();
   });
 });
