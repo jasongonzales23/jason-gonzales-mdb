@@ -23,7 +23,9 @@ Nextjs is opinionated and establishes a convention-over-configuration approach t
 - tailwind CSS
 - tons of config decisions (linting, etc)
 
-## Decisions
+## Decisions In No Particular Order
+
+I opted to load the data from a JSON file to speed things up. Loading it via a fetch seemed silly and artificial in order to demonstrate I know how to do that. I do. I wanted to focus on more difficult parts of this challenge.
 
 I opted to not make a footer in the layout. It's not hard to add one for starters, but the provided design looks more like an application and most times there's no need for a footer.
 
