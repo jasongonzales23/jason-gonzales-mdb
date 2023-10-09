@@ -19,9 +19,7 @@ export default function AddDataSourcePage() {
 
   return (
     <main>
-      <div
-        className={`flex flex-col items-center h-[calc(100vh-${SCROLL_WINDOW_OFFSET}px)]`}
-      >
+      <div className={`flex flex-col items-center`}>
         <h2 className="mb-2 text-xl text-black font-semibold">
           Select your datasource
         </h2>
@@ -38,7 +36,7 @@ export default function AddDataSourcePage() {
         <form className="mb-4 flex flex-row justify-between w-[1024px]">
           <div className="w-[320px]">
             <label
-              htmlFor="default-search"
+              htmlFor="search"
               className="mb-2 text-sm font-medium text-gray-900 sr-only"
             >
               Search
@@ -86,8 +84,9 @@ export default function AddDataSourcePage() {
             </svg>
           </button>
         </form>
-        {/** Put a nice separator here with a subtle border or shadow */}
-        <DataSources data={filteredData} />
+        <div className={`h-[calc(100vh-${SCROLL_WINDOW_OFFSET}px)]`}>
+          <DataSources data={filteredData} />
+        </div>
       </div>
     </main>
   );

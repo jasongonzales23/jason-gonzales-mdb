@@ -144,8 +144,8 @@ Set up of the project.
 Atomic design (atoms, molecules, organisms, etc) – how do you construct and organise the components?
 Pixel perfect or quality of execution that mirrors or improves on the design spec.
 State management – persisting data in the browser (Redux, Joltai).
-Submission
 
+Submission
 When you have completed the task please send the link to me (abi@mindsdb.com), Seto (sebastian.tobon@mindsdb.com), David (david.fraser@mindsdb.com), Tyler (tyler@mindsdb.com) and Tom (tom@mindsdb.com) in advance of your review call.
 
 Use either of these links to schedule a call to review your completed task:

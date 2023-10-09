@@ -1,8 +1,9 @@
-"use client";
+// "use client";
 import Image from "next/image";
 import { FixedSizeGrid as Grid } from "react-window";
 import { GridChildComponentProps } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
+import { atom, useAtom } from "jotai";
 
 type Data = {
   name: string;
@@ -12,6 +13,8 @@ type DataSources = {
   data: Data[];
 };
 
+const selectedDatasourceAtom = atom({});
+
 export default function DataSources({ data }: DataSources) {
   const GUTTER_SIZE = 20;
   const COLUMN_WIDTH = 188.8;
@@ -19,8 +22,13 @@ export default function DataSources({ data }: DataSources) {
   const COLUMN_COUNT = 5;
   const ROW_COUNT = Math.ceil(data.length / COLUMN_COUNT);
 
-  const handleClick = ({ name }: Data) => {
-    console.log(name);
+  const [selectedDatasource, setSelectedDatasource] = useAtom(
+    selectedDatasourceAtom
+  );
+
+  const handleClick = (data: Data) => {
+    console.log(data);
+    setSelectedDatasource(data);
   };
 
   const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => {
@@ -57,7 +65,6 @@ export default function DataSources({ data }: DataSources) {
     <AutoSizer disableWidth>
       {({ height }) => (
         <Grid
-          // style={{ borderTop: "#f1f1f1 1px solid" }} // add something like this onscroll to make the top look nice
           columnCount={COLUMN_COUNT}
           columnWidth={COLUMN_WIDTH + GUTTER_SIZE}
           height={height}
