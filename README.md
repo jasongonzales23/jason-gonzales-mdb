@@ -1,7 +1,7 @@
 # TODO
 
-- [ ] clean up warnings
-- [ ] break form up into components
+- [x] clean up warnings
+- [x] break form up into components
 - [x] find/replace all instances of 1024px and other magic numbers
 - [x] more svg cleanup?
 - [x] bottom cog
@@ -13,19 +13,8 @@
 - [x] add Pro Tip!
 - [x] Make a page for chat-project/add-datasource layout
 - [x] Create layout
-
 - [x] side nav
 - [x] top bar
-
-- [ ] Filtering the list
-  - [ ] What should 'Filter By' do? Existing app has 'Sort By' which is a bit unclear because if I 'sort by AWS' and type postgres is my result
-        postgres on AWS? Methinks not!
-- [ ] Figure out what I'll need Jotai for
-- [ ] route to other pages w/ a placeholder in the page, highlight nav etc
-
-- BONUS
-  - [ ] make side nav expandable
-  - [ ] theme switching
 
 # Notes for me
 
@@ -67,6 +56,8 @@ Many times a prototype ends up becoming the starting place for a real project, s
 
 Added a "magic number" to set the size of the scroll window for tiles. This is a tradeoff of speed / value / maintainability. When the layout changes in the future we'll need to fix this magic number. In that same future, it's pretty likely that will be a simple change. Or we could spend more time to calculate it better or use a an obscure CSS approach. I didn't take the time to find the obscure CSS approach. React Window already requires some weird CSS as it is and that took a while to sort out. We could set the heigh JS, but that is less efficient and creats a weird exception to how this whole project does styling.
 
+I discovered a weird bug where Tailwind doesn't work reliably when you assign fixed pixel measurements via template literals, so I had to use the `style` property of React components to set fixed heights and widths. Bizarre. I'm not super familiar with Tailwind, but was surprised to run into this -- it set me back trying to figure out why my layouts would randomly stop looking the same.
+
 ## Tests!
 
 I would always make a few integration tests. My stance on testing is integration tests > unit tests and that tests should support use-case coverage and not code coverage. I would have made more tests, but again time was short so I deprioritized this because I conceived of it as a prototype that could grow up to be a big boy someday.
@@ -79,6 +70,10 @@ It's also case insensitive because I feel that's a better experience and expecte
 ## SVG
 
 I started off doing what I think is the right way, making a component for each SVG icon used, but I quickly got worried about taking too much time for the challenge and for the remainder opted for a simpler, faster and still OK approach using the Nextjs Image tag which is still quite organized. That said, for SVG that needs to be styled dynamically I'd need each SVG to be a component that receives props. But even then things can get hairy because you're now styling with JS instead of CSS. I'm sticking with CSS for this challenge because it was faster to build with!
+
+## Tests
+
+I'll be frank, the goal here is to ship, but I wanted to demonstrate I care about tests, so I shipped a single test. I'd typically prefer more tests!
 
 ## If you want to add more datasources for virtualized rendering
 
@@ -100,6 +95,7 @@ I started off doing what I think is the right way, making a component for each S
 - Collapsible side nav, notice I have vars in there to pave the way for this
 - made SVG components more flexible (take fill colors as vars for example)
 - made it window scroll so the scroll bar isn't in the middle of the page
+- make the form elements (Input and Dropdown) a bit more flexible and perhaps composable so you could quickly make a text, number, password input etc.
 
 ## Running the development environment
 

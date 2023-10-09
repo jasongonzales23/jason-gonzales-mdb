@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import Image from "next/image";
 import { FixedSizeGrid as Grid } from "react-window";
 import { GridChildComponentProps } from "react-window";

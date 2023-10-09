@@ -6,9 +6,10 @@ import AlertBox from "@/components/alert-box";
 import Image from "next/image";
 import { useAtom } from "jotai";
 import selectedDatasourceAtom from "@/state/selected-datasource";
+import Input from "@/components/input";
+import Dropdown from "@/components/dropdown";
 
 export default function AddDataSourcePage() {
-  const SCROLL_WINDOW_OFFSET = 344;
   const [filteredData, setFilteredData] = useState(datasources);
   const [selectedDatasource, setSelectedDatasource] = useAtom(
     selectedDatasourceAtom
@@ -27,7 +28,11 @@ export default function AddDataSourcePage() {
     setSelectedDatasource({ name: "", icon: "" });
   };
 
+  // This constant is reused for the main container layout
   const MAIN_CONTAINER_WIDTH = 1024;
+  // This constant is used to set the height of the virtual window
+  const SCROLL_WINDOW_OFFSET = 334;
+
   return (
     <main>
       {!selectedDatasource.name ? (
@@ -38,7 +43,10 @@ export default function AddDataSourcePage() {
           <h3 className="mb-8 text-l text-zinc-600">
             Don&apos;t see what you&apos;re looking for? Make a request
           </h3>
-          <div className={`mb-4 w-[${MAIN_CONTAINER_WIDTH}px]`}>
+          <div
+            style={{ width: `${MAIN_CONTAINER_WIDTH}px` }}
+            className={`mb-4`}
+          >
             <AlertBox
               type="tip"
               headingText="Pro Tip!"
@@ -46,51 +54,15 @@ export default function AddDataSourcePage() {
             />
           </div>
           <form
-            className={`mb-4 flex flex-row justify-between w-[${MAIN_CONTAINER_WIDTH}px]`}
+            style={{ width: `${MAIN_CONTAINER_WIDTH}px` }}
+            className={`mb-4 flex flex-row justify-between`}
           >
             <div className="w-[320px]">
-              <label
-                htmlFor="search"
-                className="mb-2 text-sm font-medium text-gray-900 sr-only"
-              >
-                Search
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <Image
-                    className="w-3 h-3 fill-zinc-500"
-                    src="/search-icon.svg"
-                    height="20"
-                    width="20"
-                    alt="search"
-                  />
-                </div>
-                <input
-                  onChange={handleChange}
-                  type="search"
-                  id="search"
-                  className="block w-full p-2.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Search"
-                />
-              </div>
+              <Input handler={handleChange} />
             </div>
-            <button
-              id="dropdownDefaultButton"
-              data-dropdown-toggle="dropdown"
-              className="text-gray-900 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium border border-gray-300 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
-              type="button"
-            >
-              Filter by{" "}
-              <Image
-                className="w-2.5 h-2.5 fill-zinc-500 ml-2.5"
-                src="/caret-down.svg"
-                height="20"
-                width="20"
-                alt="search"
-              />
-            </button>
+            <Dropdown />
           </form>
-          <div className={`h-[calc(100vh-${SCROLL_WINDOW_OFFSET}px)]`}>
+          <div style={{ height: `calc(100vh - ${SCROLL_WINDOW_OFFSET}px)` }}>
             <DataSources data={filteredData} />
           </div>
         </div>

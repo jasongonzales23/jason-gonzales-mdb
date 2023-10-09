@@ -23,8 +23,8 @@ export default function RootLayout({
         <TopBar />
         <SideNav />
         {/* main container */}
-        <div className={`p-4 ${collapsedMargin}`}>
-          <div className="p-4 mt-14">{children}</div>
+        <div className={`p-4 pb-0 ${collapsedMargin}`}>
+          <div className="p-4 pb-0 mt-14">{children}</div>
         </div>
         {/* end main container */}
       </body>
