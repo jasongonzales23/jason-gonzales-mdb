@@ -48,10 +48,6 @@ Added a "magic number" to set the size of the scroll window for tiles. This is a
 
 I discovered a weird bug where Tailwind doesn't work reliably when you assign fixed pixel measurements via template literals, so I had to use the `style` property of React components to set fixed heights and widths. Bizarre. I'm not super familiar with Tailwind, but was surprised to run into this -- it set me back trying to figure out why my layouts would randomly stop looking the same.
 
-## Tests!
-
-I would always make a few integration tests. My stance on testing is integration tests > unit tests and that tests should support use-case coverage and not code coverage. I would have made more tests, but again time was short so I deprioritized this because I conceived of it as a prototype that could grow up to be a big boy someday.
-
 ## Filtering
 
 I opted for a very simple filter. You type the name and the results are the name where any of the typed characters are included in the name.
@@ -63,7 +59,7 @@ I started off doing what I think is the right way, making a component for each S
 
 ## Tests
 
-I'll be frank, for me the goal here was to ship, but I wanted to demonstrate I care about tests, so I shipped a single silly test. I'd typically prefer more tests and more meaningful ones!
+I would always make a few integration tests. My stance on testing is integration tests > unit tests and that tests should support use-case coverage and not code coverage. I would have made more tests, but again time was short so I deprioritized this because I conceived of it as a prototype that could grow up to be a big boy someday.
 
 ## If you want to add more datasources for virtualized rendering
 
